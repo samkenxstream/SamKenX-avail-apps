@@ -23,6 +23,7 @@
     "@polkadot/react-params": "^0.84.2-4",
     "@polkadot/react-query": "^0.84.2-4",
     "@polkadot/react-signer": "^0.84.2-4",
+    "@polkadot/rpc-provider": "4.15.2-9",
     "punycode": "^2.1.1",
     "query-string": "^6.14.1"
   },
