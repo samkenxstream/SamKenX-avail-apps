@@ -14,7 +14,6 @@
   "resolutions": {
     "@polkadot/api": "^4.1.2-3",
     "@polkadot/metadata": "^4.17.1",
-    "@polkadot/types": "^4.17.1",
     "@polkadot/api-contract": "^4.1.2-3",
     "@polkadot/hw-ledger": "^6.0.5",
     "@polkadot/keyring": "^6.0.5",
