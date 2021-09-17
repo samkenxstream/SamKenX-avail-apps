@@ -1340,7 +1340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6":
+"@babel/runtime@npm:^7.14.6":
   version: 7.15.4
   resolution: "@babel/runtime@npm:7.15.4"
   dependencies:
@@ -13836,16 +13836,18 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"npptesttypes@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "npptesttypes@npm:1.0.0"
+"npptesttypes@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "npptesttypes@npm:1.0.1"
   dependencies:
-    "@babel/runtime": ^7.14.5
-    "@polkadot/metadata": 4.15.2-9
-    "@polkadot/util": ^6.9.1
-    "@polkadot/util-crypto": ^6.9.1
-    "@polkadot/x-rxjs": ^6.9.1
-  checksum: ddd71ff4c8283008440f123df373e2395eee18b2c83ca6bd25b3d0431813a4bd6fa899d5f8723002673f8b067bf3654abf2839ac58dd65c9fbdd3a5a443fb5fa
+    "@babel/runtime": ^7.13.9
+    "@polkadot/metadata": 4.1.1
+    "@polkadot/util": ^6.0.5
+    "@polkadot/util-crypto": ^6.0.5
+    "@polkadot/x-rxjs": ^6.0.5
+    "@types/bn.js": ^4.11.6
+    bn.js: ^4.11.9
+  checksum: e99be15b29a857cdf5a6c23f0c4cb3324dde89a6df0c75471009466dada6334a0e4dc531ce32d9917d8d5dabd77669a54746b5bc6f4b1eb28c0fdb01e97a1875
   languageName: node
   linkType: hard
 
@@ -14699,7 +14701,7 @@ fsevents@~2.1.2:
     electron-builder: ^22.10.5
     electron-builder-notarize: ^1.2.0
     i18next-scanner: ^3.0.0
-    npptesttypes: ^1.0.0
+    npptesttypes: ^1.0.1
     react: ^17.0.1
     react-dom: ^17.0.1
     react-is: ^17.0.1
