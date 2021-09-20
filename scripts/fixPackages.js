@@ -4,13 +4,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const A_FIX = 'npptesttypes/build';
+const PACKAGE_NAME = 'npptesttypes';
+
+const A_FIX = path.join(PACKAGE_NAME, 'build');
 const TO_FIX = [
   '@polkadot/types',
   '@polkadot/metadata/node_modules/@polkadot/types',
   'moonbeam-types-bundle/node_modules/@polkadot/types',
   '@polkadot/types-known/node_modules/@polkadot/types'
 ];
+
+const NODE_MODULES = path.join(__dirname, '..', 'node_modules');
 
 function copyFiles (source, dest) {
   if (!fs.existsSync(dest)) {
@@ -36,12 +40,18 @@ function copyFiles (source, dest) {
 }
 
 function findPackages () {
-  const nodeModulesRoot = path.join(__dirname, '..', 'node_modules');
-
   for (const p of TO_FIX) {
-    fs.rmdirSync(path.join(nodeModulesRoot, p), { force: true, recursive: true });
-    copyFiles(path.join(nodeModulesRoot, A_FIX), path.join(nodeModulesRoot, p));
+    fs.rmdirSync(path.join(NODE_MODULES, p), { force: true, recursive: true });
+    copyFiles(path.join(NODE_MODULES, A_FIX), path.join(NODE_MODULES, p));
   }
 }
 
+function foolPolkadot () {
+  const packageInfoFile = path.join(NODE_MODULES, A_FIX, 'packageInfo.js');
+  const fileContent = fs.readFileSync(packageInfoFile).toString();
+
+  fs.writeFileSync(packageInfoFile, fileContent.replace(`'${PACKAGE_NAME}'`, `'@polkadot/${PACKAGE_NAME}'`));
+}
+
+foolPolkadot();
 findPackages();
