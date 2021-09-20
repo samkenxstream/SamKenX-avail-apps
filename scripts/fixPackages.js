@@ -47,10 +47,14 @@ function findPackages () {
 }
 
 function foolPolkadot () {
-  const packageInfoFile = path.join(NODE_MODULES, A_FIX, 'packageInfo.js');
-  const fileContent = fs.readFileSync(packageInfoFile).toString();
+  const files = ['packageInfo.js', 'packageInfo.cjs'];
 
-  fs.writeFileSync(packageInfoFile, fileContent.replace(`'${PACKAGE_NAME}'`, `'@polkadot/${PACKAGE_NAME}'`));
+  for (const fileName of files) {
+    const packageInfoFile = path.join(NODE_MODULES, A_FIX, fileName);
+    const fileContent = fs.readFileSync(packageInfoFile).toString();
+
+    fs.writeFileSync(packageInfoFile, fileContent.replace(`'${PACKAGE_NAME}'`, `'@polkadot/${PACKAGE_NAME}'`));
+  }
 }
 
 foolPolkadot();
