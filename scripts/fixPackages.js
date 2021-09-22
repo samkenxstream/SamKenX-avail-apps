@@ -8,10 +8,7 @@ const PACKAGE_NAME = 'npptesttypes';
 
 const A_FIX = path.join(PACKAGE_NAME, 'build');
 const TO_FIX = [
-  '@polkadot/types',
-  '@polkadot/metadata/node_modules/@polkadot/types',
-  'moonbeam-types-bundle/node_modules/@polkadot/types',
-  '@polkadot/types-known/node_modules/@polkadot/types'
+  '@polkadot/types'
 ];
 
 const NODE_MODULES = path.join(__dirname, '..', 'node_modules');
@@ -41,8 +38,9 @@ function copyFiles (source, dest) {
 
 function findPackages () {
   for (const p of TO_FIX) {
-    fs.rmdirSync(path.join(NODE_MODULES, p), { force: true, recursive: true });
-    copyFiles(path.join(NODE_MODULES, A_FIX), path.join(NODE_MODULES, p));
+    const destinationPath = path.join(NODE_MODULES, p);
+    fs.rmdirSync(destinationPath, { force: true, recursive: true });
+    copyFiles(path.join(NODE_MODULES, A_FIX), destinationPath);
   }
 }
 
