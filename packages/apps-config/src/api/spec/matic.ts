@@ -12,18 +12,24 @@ const definitions: OverrideBundleDefinition = {
       // on all versions
       minmax: [0, undefined],
       types: {
+        AccountInfo: 'AccountInfoWithRefCount',
         ExtrinsicsRoot: {
           hash: 'Hash',
           commitment: 'Vec<u8>',
           rows: 'u16',
           cols: 'u16'
         },
+        AppDataIndex: {
+          size: 'u32',
+          index: 'Vec<(u32, u32)>'
+        },
         Header: {
           parentHash: 'Hash',
           number: 'Compact<BlockNumber>',
           stateRoot: 'Hash',
           extrinsicsRoot: 'ExtrinsicsRoot',
-          digest: 'Digest'
+          digest: 'Digest',
+          appDataLookup: 'AppDataIndex'
         }
       }
     }
